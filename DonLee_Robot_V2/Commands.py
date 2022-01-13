@@ -14,7 +14,7 @@ db = Database()
 @DonLee_Robot_V2.on_message(filters.command(["start", "alive"]) & filters.private)
 async def start(bot: DonLee_Robot_V2, msg: Import.Msg):
     START_BUTTON = [[  
-          Import.Button("➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍𝗌 ➕", url=f"http://t.me/{Config.BOT_USERNAME}?startgroup=true")
+          Import.Button(" 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍𝗌 ", url=f"http://t.me/{Config.BOT_USERNAME}?startgroup=true")
           ],[
           Import.Button("⚠️ 𝖧𝖾𝗅𝗉", callback_data="help"),
           Import.Button("𝖠𝖻𝗈𝗎𝗍 🤠", callback_data="about")
