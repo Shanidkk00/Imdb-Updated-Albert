@@ -1,11 +1,7 @@
-<details><summary>Deploy to Heroku</summary>
-<p>
-<br>
-<a href="https://heroku.com/deploy?template=https://github.com/Sreejithmadmax/DonLee-Robot-V2/tree/master">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
-</p>
-</details>
+### Deploy
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Sreejithmadmax/DonLee-Robot-V2)
+
 
 
 
