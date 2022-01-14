@@ -1,6 +1,8 @@
 ### Deploy
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Sreejithmadmax/DonLee-Robot-V<p align="center">
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Sreejithmadmax/DonLee-Robot-V2)
+
+<p align="center">
 ↪️ 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒 ↩️
 </p>
 
