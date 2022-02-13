@@ -132,23 +132,22 @@ async def cb_navg(bot, update: CallbackQuery):
     reply_markup = InlineKeyboardMarkup(temp_results)
     text=f"""
 ↪️ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖬𝗈𝗏𝗂𝖾: {query}
-🗃️ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : {leng}
-📑 𝖳𝗈𝗍𝖺𝗅 𝖯𝖺𝗀𝖾 : 1/{index_val + 1}/{len(results) if len(results) < max_pages else max_pages}
 👤 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖡𝗒 : {update.from_user.mention}"""
      
     try:
         imdb = await donlee_imdb(query)
         await update.message.edit_caption(
-                caption=f"""
-↪️ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖬𝗈𝗏𝗂𝖾: {query}
-🎞️ 𝖳𝗂𝗍𝗅𝖾: <a href={imdb['url']}>{imdb.get('title')}
-🎭 𝖦𝖾𝗇𝗋𝖾𝗌: {imdb.get('genres')}
-📆 𝖸𝖾𝖺𝗋: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 𝖱𝖺𝗍𝗂𝗇𝗀: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🗃️ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : {leng}
-📑 𝖳𝗈𝗍𝖺𝗅 𝖯𝖺𝗀𝖾 : 1/{index_val + 1}/{len(results) if len(results) < max_pages else max_pages}
-👤 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖡𝗒 : {update.from_user.mention}
-🖋 𝖲𝗍𝗈𝗋𝗒𝗅𝗂𝗇𝖾: <code>{imdb.get('plot')}</code>""",
+              caption=f"""<b>🎬 Title :</b> <a href={imdb['url']}>{imdb.get('title')}</a>
+<b>🎭 Genres :</b> {imdb.get('genres')}
+<b>📆 Release :</b> <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+<b>🌟 Rating :</b> <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+<b>🗳️ Votes :</b> <a href={imdb['url']}/votes>{imdb.get('votes')}</a>
+<b>⏱ RunTime :</b> {imdb.get('runtime')} Minutes
+<b>🗣️ Requested :</b> {update.from_user.mention}
+<b>🎙️ Languages :</b> {imdb.get('languages')}
+<b>🌎 Countries :</b> {imdb.get('country')}
+<b>🔰 Group :</b> {update.chat.title}
+<b>🖋 StoryLine :</b> <code>{imdb.get('plot')} </code>""",
                 reply_markup=reply_markup,
                 parse_mode="html"
         )
@@ -166,16 +165,17 @@ async def cb_navg(bot, update: CallbackQuery):
            try:
               imdb = await donlee_imdb(query)
               await update.message.edit_caption(
-                caption=f"""
-↪️ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖬𝗈𝗏𝗂𝖾: {query}
-🎞️ 𝖳𝗂𝗍𝗅𝖾: <a href={imdb['url']}>{imdb.get('title')}
-🎭 𝖦𝖾𝗇𝗋𝖾𝗌: {imdb.get('genres')}
-📆 𝖸𝖾𝖺𝗋: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 𝖱𝖺𝗍𝗂𝗇𝗀: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🗃️ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : {leng}
-📑 𝖳𝗈𝗍𝖺𝗅 𝖯𝖺𝗀𝖾 : 1/{index_val + 1}/{len(results) if len(results) < max_pages else max_pages}
-👤 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖡𝗒 : {update.from_user.mention}
-🖋 𝖲𝗍𝗈𝗋𝗒𝗅𝗂𝗇𝖾: <code>{imdb.get('plot')}</code>""",
+              caption=f"""<b>🎬 Title :</b> <a href={imdb['url']}>{imdb.get('title')}</a>
+<b>🎭 Genres :</b> {imdb.get('genres')}
+<b>📆 Release :</b> <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+<b>🌟 Rating :</b> <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+<b>🗳️ Votes :</b> <a href={imdb['url']}/votes>{imdb.get('votes')}</a>
+<b>⏱ RunTime :</b> {imdb.get('runtime')} Minutes
+<b>🗣️ Requested :</b> {update.from_user.mention}
+<b>🎙️ Languages :</b> {imdb.get('languages')}
+<b>🌎 Countries :</b> {imdb.get('country')}
+<b>🔰 Group :</b> {update.chat.title}
+<b>🖋 StoryLine :</b> <code>{imdb.get('plot')} </code>""",
                 reply_markup=reply_markup,
                 parse_mode="html"
               )
@@ -1519,7 +1519,45 @@ async def cb_status(bot, update: CallbackQuery):
     
     await update.message.edit_text(text, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html")
 
+@DonLee_Robot_V2.on_callback_query(filters.regex("querydonttouch"), group=2)
+async def my_querydonttouch(bot, update: CallbackQuery):
+    #Callback Function for instructions when no results are available
+   
+   global VERIFY
+   chat_id = update.message.chat.id
+   user_id = update.from_user.id
+   await update.answer("🤔Wait A Minute...Who Are You? \n\nDont Repeat Ok🤭", show_alert=True)
+   return
 
+@DonLee_Robot_V2.on_callback_query(filters.regex("spellcheck"), group=2)
+async def my_spellcheck(bot, update: CallbackQuery):
+    #Callback Function for instructions when no results are available
+   
+   global VERIFY
+   chat_id = update.message.chat.id
+   user_id = update.from_user.id
+   await update.answer("✴️Check Your Movie Name Is Correct Reference [IMDB]\n✴️Movie Released Any Platform? Like Amazone, Hotstar, Etc\n✴️Click [Report] Button To Inform Admin To Upload File📂", show_alert=True)
+   return
+
+@DonLee_Robot_V2.on_callback_query(filters.regex("instructions"), group=2)
+async def my_instructs(bot, update: CallbackQuery):
+    #Callback Function for instructions when no results are available
+   
+   global VERIFY
+   chat_id = update.message.chat.id
+   user_id = update.from_user.id
+   await update.answer("=> Ask with correct spelling🗣️\n=> Don't ask movies those are not released in OTT😒\n=>For better results✅️:- ✴️MovieName Year✴️\n✳️Eg: Solo 2017✳️", show_alert=True)
+   return
+
+@DonLee_Robot_V2.on_callback_query(filters.regex("queryfilmname"), group=2)
+async def my_queryfilmname(bot, update: CallbackQuery):
+    #Callback Function for instructions when no results are available
+   
+   global VERIFY
+   chat_id = update.message.chat.id
+   user_id = update.from_user.id
+   await update.answer("✴️Dont Judge With The Film With The Poster Bot Shows.. \n✴️Just Look The Film Name,Size, Buttons\n✴️Also Watch Next All Pages To Get Movie", show_alert=True)
+   return
 
 @DonLee_Robot_V2.on_callback_query(filters.regex(r"about\((.+)\)"), group=2)
 async def cb_about(bot, update: CallbackQuery):
