@@ -19,7 +19,7 @@ class Config(object):
     DATABASE = os.environ.get("DATABASE_URI")   
     # from forces subscriber );
     FORCE_SUB_TEXT = os.environ.get("FORCE_TEXT", Text.FORCE_SUB_TEXT)
-    FORCE_CHANNEL = os.environ.get("FORCE_CHANNEL", "BlinderTG")
+    FORCE_CHANNEL = os.environ.get("FORCE_CHANNEL", "redirecturvashi")
     # seplling mode
     SPELLING_MODE = os.environ.get("SPELLING_MODE_TEXT", Text.SPELLING_TEXT)
     # from Bot Deploying User
