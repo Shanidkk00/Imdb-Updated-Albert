@@ -40,7 +40,7 @@
         },
         "FORCE_CHANNEL": {
             "description": "FORCE_CHANNEL Your Update Channel (without @)",
-            "value": "MO_TECH_YT"
+            "value": "EinsteinBotFriends"
         },
         "CUSTOM_CAPTION": {
             "description": "file Custom Caption",
@@ -54,22 +54,22 @@
         },
         "DEV_USERNAME": {
             "description": "Master (your) Telagarm Useraname from @MT_ID_Bot (Without @)",
-            "value": "Mrk_YT",
+            "value": "BlinderTG",
             "required": false
         },
         "DEV_NAME": {
             "description": "Your Name DEV_NAME",
-            "value": "𝖬𝗎𝗁𝖺𝗆𝗆𝖾𝖽",
+            "value": "BlinderTG",
             "required": false
         },
         "DEV_ID1": {
             "description": "Master (your) Telagarm id from @MT_ID_Bot (Without @) (split id)",
-            "value": "2028425293",
+            "value": "1961429680",
             "required": false
         },
         "DEV_ID2": {
             "description": "Master (your) Telagarm id from @MT_ID_Bot (Without @)",
-            "value": "2028425293",
+            "value": "1946514705",
             "required": false
         },
         "GROUP_LINK": {
