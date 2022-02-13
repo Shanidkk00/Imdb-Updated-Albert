@@ -494,6 +494,10 @@ async def donlee_imdb(query, bulk=False, id=False):
         movieid = int(query)
     movie = imdb.get_movie(movieid)
     title = movie.get('title')
+    votes = str(movie.get("votes"))
+    country = str(movie.get("country"))
+    lang = str(movie.get("lang"))
+    runtime = str(movie.get("runtime"))
     genres = ", ".join(movie.get("genres")) if movie.get("genres") else None
     rating = str(movie.get("rating"))
     if movie.get("original air date"):
@@ -514,6 +518,10 @@ async def donlee_imdb(query, bulk=False, id=False):
         'genres': genres,
         'poster': poster,
         'plot': plot,
+        'country': country,
+        'votes': votes,
+        'lang': lang,
+        'runtime': runtime,
         'rating': rating,
         'url':f'https://www.imdb.com/title/tt{movieid}'
 
@@ -971,7 +979,7 @@ class Database:
             print(e) 
             return False
 
-    Donlee_bt = InlineKeyboardMarkup( [[ InlineKeyboardButton("💞Build A New Bot💞", url="https://youtu.be/NrbMc93aCzA")]])
+    Donlee_bt = InlineKeyboardMarkup( [[ InlineKeyboardButton("💞Build A New Bot💞", url="https://t.me/redirecturvashi")]])
     async def delall_filters(self, group_id: int):
         """
         A Funtion To delete all filters of a group
