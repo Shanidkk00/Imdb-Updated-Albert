@@ -375,6 +375,17 @@ async def auto_filter(bot, update):
     filters = await db.get_filters(group_id, query)
     
     if filters:
+        results.append(
+                [
+                    InlineKeyboardButton(f"🔮{query}🔮", callback_data="querydonttouch")
+                ]
+            ) 
+
+        results.append([
+                    InlineKeyboardButton("🔅Trick🔅", callback_data="queryfilmname"),
+                    InlineKeyboardButton("🔅Tips🔅", callback_data="instructions")
+                ]
+            )
         for filter in filters: # iterating through each files
             file_name = filter.get("file_name")
             file_type = filter.get("file_type")
@@ -484,7 +495,7 @@ async def auto_filter(bot, update):
         # Just A Decaration
         result[0].append([
                     InlineKeyboardButton(f"⚠️Page 1/{len_result if len_result < max_pages else max_pages}⚠️", callback_data="ignore"),
-                    InlineKeyboardButton("⚠️Dont Do⚠️", callback_data="ignore")
+                    InlineKeyboardButton("⚠️Dont Do⚠️", callback_data="querydonttouch")
                 ]
             )
         result[0].append([            
