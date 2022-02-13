@@ -19,14 +19,14 @@ class Config(object):
     DATABASE = os.environ.get("DATABASE_URI")   
     # from forces subscriber );
     FORCE_SUB_TEXT = os.environ.get("FORCE_TEXT", Text.FORCE_SUB_TEXT)
-    FORCE_CHANNEL = os.environ.get("FORCE_CHANNEL", "Mo_Tech_YT")
+    FORCE_CHANNEL = os.environ.get("FORCE_CHANNEL", "BlinderTG")
     # seplling mode
     SPELLING_MODE = os.environ.get("SPELLING_MODE_TEXT", Text.SPELLING_TEXT)
     # from Bot Deploying User
     DEV_ID = set(int(x) for x in os.environ.get("DEV_ID1", "2028425293").split())
-    DEV_NAME = os.environ.get("DEV_NAME", "𝖬𝗎𝗁𝖺𝗆𝗆𝖾𝖽 𝖱𝖪")
+    DEV_NAME = os.environ.get("DEV_NAME", "BlinderTG")
     OW_ID = int(os.environ.get("DEV_ID2", "2028425293"))
-    DEV_USERNAME = os.environ.get("DEV_USERNAME", "Mrk_YT")
+    DEV_USERNAME = os.environ.get("DEV_USERNAME", "BlinderTG")
     # from file caption
     CAPTION_BOLD_OR_MONO = os.environ.get("FILE_CAPTION", "mono")
     CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", Text.FILECAPTION)
@@ -57,7 +57,7 @@ class Config(object):
     CUSTOM_WELCOME = os.environ.get("WELCOME_ENABLE_OR_DISABLE", "on").lower()
 
     # from bot ):
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "Donlee_Robot")
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "BlinderTG")
     BOT_NAME = os.environ.get("DONLEE_ROBOT_V2", "FLES")
 
     SAVE_USER = os.environ.get("SAVE_USER", "no").lower()
