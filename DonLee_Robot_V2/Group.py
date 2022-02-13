@@ -430,40 +430,36 @@ async def auto_filter(bot, update):
 
                 bot_ = FIND.get("bot_details")
                 file_link = f"https://t.me/{bot_.username}?start={unique_id}"
-            if Config.BUTTON_MODE == "single":
-               button_text = f"{file_size} || {file_name}"
-               results.append(
-
+            
+            results.append(
                 [
-
                     InlineKeyboardButton(button_text, url=file_link)
-
-                ]
-
-            )
-            else:
-               results.append(
-                [
-                    InlineKeyboardButton(f"{file_name}", url=file_link),
-                    InlineKeyboardButton(f"{file_size}", url=file_link)
                 ]
             )
               
            
         
-    else: #return if no files found for that query
-        Auto_Delete=await bot.send_message(
-            chat_id = update.chat.id,
-            text=Text.SPELLING_TEXT.format(update.from_user.mention, the_query, the_query),
-            parse_mode="html",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Search Google 🔎", url="https://google.com/")]]),
-            reply_to_message_id=update.message_id
-        )
-        await asyncio.sleep(60) # in seconds
-        await Auto_Delete.delete()
-        return
+    else:
+        Send_message=await bot.send_sticker(
+                chat_id=update.chat.id,
+                sticker="CAACAgUAAxkBAAEByQ5h-O0PM7989UvoZrtxcvwe_lyxogACMwQAAoTT8Va9rS_EQ4gPzh4E",
+                reply_markup=InlineKeyboardMarkup(
+                        [                                
+                            [
+                                InlineKeyboardButton("🎭 Reason", callback_data="spellcheck"),
+                                InlineKeyboardButton('📃 Report', url='https://t.me/UrvashiTheatersAdmin_Bot')       
+                            ]
+                          
+                        ]
+                    ),
+                reply_to_message_id=update.message_id
+            )
+        await asyncio.sleep(15) # in seconds
+        await Send_message.delete()
+        # await bot.delete_messages(update.chat.id,update.message_id)
+        return  # return if no files found for that query
     
-    if len(results) == 0: # double check
+    if len(results) == 0:   # double check
         return
     
     else:
@@ -481,15 +477,20 @@ async def auto_filter(bot, update):
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("𝖭𝖾𝗑𝗍 »»", callback_data=f"navigate(0|next|{query})"),
-                    InlineKeyboardButton(f"🧾 1/{len_result if len_result < max_pages else max_pages}", callback_data="ignore"),
+                    InlineKeyboardButton("🔰  𝙽𝚎𝚡𝚝  🔰", callback_data=f"navigate(0|next|{query})")
                 ]
             )
-
-            
-            
         
-        
+        # Just A Decaration
+        result[0].append([
+                    InlineKeyboardButton(f"⚠️Page 1/{len_result if len_result < max_pages else max_pages}⚠️", callback_data="ignore"),
+                    InlineKeyboardButton("⚠️Dont Do⚠️", callback_data="querydonttouch")
+                ]
+            )
+        result[0].append([            
+                    InlineKeyboardButton(f'{update.chat.title}', url='https://t.me/UrvashiTheaters')
+                ]
+            )
         # if show_invite is True Append invite link buttons
         if show_invite:
             
@@ -552,17 +553,17 @@ async def auto_filter(bot, update):
             imdb = await donlee_imdb(the_query)
             await bot.send_photo(
                 photo=movie_url,
-                caption=f"""
-↪️ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖬𝗈𝗏𝗂𝖾: {query}
-🎞️ 𝖳𝗂𝗍𝗅𝖾: <a href={imdb['url']}>{imdb.get('title')}
-🎭 𝖦𝖾𝗇𝗋𝖾𝗌: {imdb.get('genres')}
-📆 𝖸𝖾𝖺𝗋: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
-🌟 𝖱𝖺𝗍𝗂𝗇𝗀: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
-🗃️ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : {(len_results)}
-📑 𝖳𝗈𝗍𝖺𝗅 𝖯𝖺𝗀𝖾 : 1/{len_result if len_result < max_pages else max_pages}
-👤 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖡𝗒 : {update.from_user.mention}
-🖋 𝖲𝗍𝗈𝗋𝗒𝗅𝗂𝗇𝖾: <code>{imdb.get('plot')}</code>
-☑️ 𝖢𝗁𝖺𝗍 : {update.chat.title}""",
+                caption=f"""<b>🎬 Title :</b> <a href={imdb['url']}>{imdb.get('title')}</a>
+<b>🎭 Genres :</b> {imdb.get('genres')}
+<b>📆 Release :</b> <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>
+<b>🌟 Rating :</b> <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10
+<b>🗳️ Votes :</b> <a href={imdb['url']}/votes>{imdb.get('votes')}</a>
+<b>⏱ RunTime :</b> {imdb.get('runtime')} Minutes
+<b>🗣️ Requested :</b> {update.from_user.mention}
+<b>🎙️ Languages :</b> {imdb.get('languages')}
+<b>🌎 Countries :</b> {imdb.get('country')}
+<b>🔰 Group :</b> {update.chat.title}
+<b>🖋 StoryLine :</b> <code>{imdb.get('plot')} </code>""",
                 reply_markup=reply_markup,
                 chat_id=update.chat.id,
                 reply_to_message_id=update.message_id,
@@ -573,17 +574,10 @@ async def auto_filter(bot, update):
           print(e)
 
           try:
-              await bot.send_message(
+              await bot.send_sticker(
+                sticker="CAACAgUAAxkBAAEByQABYfjny5mhKeqNd7Ms_mHFQYtrPh0AAsEEAAKnr9BWEhuifkPphXkeBA",
                 chat_id = update.chat.id,
-                text=f"""
-↪️ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖬𝗈𝗏𝗂𝖾: {query}
-🗃️ 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌 : {(len_results)}
-📑 𝖳𝗈𝗍𝖺𝗅 𝖯𝖺𝗀𝖾 : 1/{len_result if len_result < max_pages else max_pages}
-👤 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝖾𝖽 𝖡𝗒 : {update.from_user.mention}
-☑️ 𝖢𝗁𝖺𝗍 : {update.chat.title}
-""",
                 reply_markup=reply_markup,
-                parse_mode="html",
                 reply_to_message_id=update.message_id
             )
 
