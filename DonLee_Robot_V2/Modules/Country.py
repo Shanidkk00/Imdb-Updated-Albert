@@ -38,7 +38,7 @@ Population : <code>{country.population()}</code>
 
 𝖳𝗂𝗆𝖾𝗓𝗈𝗇𝖾 : <code>{country.timezones()}</code>
 
-𝖬𝖺𝖽𝖾 𝖻𝗒 @Mo_Tech_YT"""
+𝖬𝖺𝖽𝖾 𝖻𝗒 @Sanoob_Achu_18"""
     country_name = country.name()
     country_name = country_name.replace(" ", "+")
     buttons=[[
