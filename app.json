@@ -91,22 +91,12 @@
             "description": "Set Your Custom Welcome Text (User Name = {mention} || Group Name {groupname}",
             "value": "",
             "required": false
-        },
-        "SPELLING_MODE_TEXT": {
-            "description": "Spelling Mode Text (Google Spelling Mode)",
-            "value": "",
-            "required": false
-        },
+        },       
         "PHOTOS": {
             "description": "Bot Pics (Start Help about) random pics @MT_Telegraph_Bot",
             "value": "",
             "required": false
-        },
-        "FILE_BUTTONS": {
-            "description": "File Buttons dual Or single",
-            "value": "",
-            "required": false
-        },
+        },        
         "FILE_CAPTION": {
             "description": "File Caption bold or mono",
             "value": "",
