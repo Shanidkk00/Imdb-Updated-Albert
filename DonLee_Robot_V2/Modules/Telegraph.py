@@ -44,11 +44,11 @@ async def telegraph(client, message: Import.Msg):
     else:
         await message.reply_photo(
             photo=f"https://telegra.ph{response[0]}",
-            caption=f"<b>𝗅𝗂𝗇𝗄:-</b> <code>https://telegra.ph{response[0]}</code>\n\n𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @Mo_Tech_YT",
+            caption=f"<b>𝗅𝗂𝗇𝗄:-</b> <code>https://telegra.ph{response[0]}</code>\n\n𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @Sanoob_Achu_18",
             quote=True,
             reply_markup=Import.Markup([[
-               Import.Button(text="𝗈𝗉𝖾𝗇 𝗅𝗂𝗇𝗄", url=f"https://telegra.ph{response[0]}"),
-               Import.Button(text="𝗌𝗁𝖺𝗋𝖾 𝗅𝗂𝗇𝗄", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
+               Import.Button(text="O𝗉𝖾𝗇 𝗅𝗂𝗇𝗄", url=f"https://telegra.ph{response[0]}"),
+               Import.Button(text="S𝗁𝖺𝗋𝖾 𝗅𝗂𝗇𝗄", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
                ],[
                Import.Button(text="𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data="close")
                ]]
