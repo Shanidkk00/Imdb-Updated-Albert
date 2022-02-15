@@ -1,6 +1,6 @@
 ### Deploy
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Sreejithmadmax/Imdb-Updated-Albert)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shanidkk00/Imdb-Updated-Albert)
 
 <p align="center">
 ↪️ 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒 ↩️
